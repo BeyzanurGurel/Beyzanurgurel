@@ -1,10 +1,51 @@
-<html>          
-    <head>      
-        <title> Beyzanur Gürel'in Sayfaları </title>
-    </head>
-    <body>
-        <h1>
-            Beyzanur Gürel'in sayfalarına hoşgeldiniz...
-        </h1>
-    </body>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollivander'ın Çırağı - Sihir Dükkanı</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="pages/urunler.html">Sihirli Eşyalar</a></li>
+                <li><a href="pages/sepet.html">Sepetim</a></li>
+                <li><a href="pages/iletisim.html">Baykuş Gönder (İletişim)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Sihir Dükkanımıza Hoş Geldiniz!</h1>
+        <p>En kaliteli asalar, iksir malzemeleri ve büyü kitapları burada sizi bekliyor.</p>
+       
+
+        <div style="margin: 30px 0;">
+            <h2>Hangi Binadasın?</h2>
+            
+            <img src="img/secmen-sapka.jpg" alt="Seçmen Şapka" class="sapka-img" id="sapka-resmi">
+            
+            <p>Alışverişe başlamadan önce binanı öğrenmek ister misin?</p>
+            <button onclick="secmenSapkaOyunu()">Seçmen Şapka'yı Tak</button>
+            
+            <div id="sonuc-alani" style="margin-top: 20px; font-size: 22px; font-weight: bold;"></div>
+        </div>
+        
+        <div class="product-showcase">
+            <h2>Öne Çıkan Ürünler</h2>
+            <p>Çok yakında buraya mürver asalar ve şans iksirleri eklenecek...</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ollivander'ın Çırağı. Tüm sihirli hakları saklıdır.</p>
+    </footer>
+
+    <script src="scripts/myscript.js"></script>
+
+</body>
 </html>
