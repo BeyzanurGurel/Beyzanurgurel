@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepetim - Ollivander'ın Çırağı</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="urunler.html">Sihirli Eşyalar</a></li>
+                <li><a href="sepet.html">Sepetim</a></li>
+                <li><a href="iletisim.html">Baykuş Gönder (İletişim)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Alışveriş Sepetiniz</h1>
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Ürün Adı</th>
+                    <th>Fiyat</th>
+                </tr>
+            </thead>
+            <tbody id="sepet-tablo-govdesi"></tbody>
+        </table>
+        
+        <h3 id="toplam-fiyat">Toplam: 0 Galleon</h3>
+        <button onclick="siparisTamamla()">Siparişi Tamamla</button>
+    </main>
+
+    <script>
+        let sepet = JSON.parse(localStorage.getItem('benimSepetim')) || [];
+        let tabloGovdesi = document.getElementById('sepet-tablo-govdesi');
+        let toplamAlani = document.getElementById('toplam-fiyat');
+        let toplam = 0;
+
+        sepet.forEach(urun => {
+            // Eğer ürün obje ise (yeni format)
+            if (typeof urun === 'object') {
+                let row = `<tr><td>${urun.adi}</td><td>${urun.fiyat} Galleon</td></tr>`;
+                tabloGovdesi.innerHTML += row;
+                toplam += parseInt(urun.fiyat) || 0;
+            } else {
+                // Eğer sadece isim ise (eski format)
+                let row = `<tr><td>${urun}</td><td>200 Galleon</td></tr>`;
+                tabloGovdesi.innerHTML += row;
+                toplam += 200;
+            }
+        });
+
+        toplamAlani.innerText = "Toplam: " + toplam + " Galleon";
+
+        // --- EKSİK OLAN FONKSİYON BURADA ---
+        function siparisTamamla() {
+            if (sepet.length === 0) {
+                alert("Sepetiniz boş!");
+                return;
+            }
+            alert("Siparişiniz alındı! Baykuşlarımız yola çıkıyor.");
+            localStorage.clear(); // Sepeti boşalt
+            location.reload();    // Sayfayı yenile
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2026 Ollivander'ın Çırağı. Tüm sihirli hakları saklıdır.</p>
+    </footer>
+
+    <script src="../scripts/myscript.js"></script>
+
+</body>
+</html>
