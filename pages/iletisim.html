@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -59,4 +60,63 @@
     <script src="../scripts/myscript.js"></script>
 
 </body>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Ollivander'ın Çırağı</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body class="mektup-sayfasi">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="urunler.html">Sihirli Eşyalar</a></li>
+                <li><a href="sepet.html">Sepetim</a></li>
+                <li><a href="iletisim.html">Baykuş Gönder (İletişim)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="color: #fff; text-shadow: 2px 2px 4px #000;">Baykuş Gönder</h1>
+        <p style="color: #fff; text-shadow: 1px 1px 3px #000;">Siparişleriniz veya özel asa talepleriniz için bize ulaşın.</p>
+
+        <form action="#" method="POST">
+            <div>
+                <label for="isim">Büyücü Adınız:</label><br>
+                <input type="text" id="isim" name="isim" required>
+            </div>
+            <br>
+            <div>
+                <label for="bina">Hogwarts Binanız:</label><br>
+                <select id="bina" name="bina">
+                    <option value="gryffindor">Gryffindor</option>
+                    <option value="slytherin">Slytherin</option>
+                    <option value="ravenclaw">Ravenclaw</option>
+                    <option value="hufflepuff">Hufflepuff</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="mesaj">Mesajınız:</label><br>
+                <textarea id="mesaj" name="mesaj" rows="5" cols="30" required></textarea>
+            </div>
+            <br>
+            <button type="submit">Baykuşu Uçur</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ollivander'ın Çırağı. Tüm sihirli hakları saklıdır.</p>
+    </footer>
+
+    <script src="../scripts/myscript.js"></script>
+
+</body>
+
 </html>

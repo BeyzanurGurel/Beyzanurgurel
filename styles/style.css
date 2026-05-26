@@ -1,3 +1,4 @@
+
 /* --- GENEL AYARLAR --- */
 /* W3Schools CSS Box Model ve CSS Fonts */
 * {
@@ -284,4 +285,240 @@ footer {
     box-sizing: border-box;
     margin-top: 5px;
     margin-bottom: 15px;
+}
+/* --- GENEL AYARLAR --- */
+/* W3Schools CSS Box Model ve CSS Fonts */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #2b2a4b; /* Parşömen rengi */
+    color: #a4a4a4; /* Okunabilir koyu gri metinler */
+    line-height: 1.6;
+}
+
+/* --- KURAL 4 VE 14: HEADER VE NAVBAR (FLEXBOX) --- */
+/* W3Schools CSS Flexbox ve CSS Navigation Bar */
+header {
+    background-color: #06043a; /* Gryffindor Bordo / Koyu Kırmızı */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #d3a625; /* Altın sarısı çizgi */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Kural 6: Mobil ekranlar için alt alta geçme */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #d3a625; /* Gryffindor Altın Sarısı */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffffff; /* Üzerine gelince beyaz parlasın */
+}
+
+/* --- ANA İÇERİK (MAIN) --- */
+/* W3Schools CSS Padding ve CSS Margins */
+main {
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 500px;
+}
+
+h1, h2, h3 {
+    color: #d3a625; /* Başlıklar Gryffindor Bordosu */
+    margin-bottom: 20px;
+}
+
+/* --- KURAL 14: ÜRÜN LİSTELEME (FLEXBOX) --- */
+/* W3Schools CSS Flexbox */
+.product-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    background-color: #ffffff; 
+    border: 2px solid #740001; /* Bordo çerçeve */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    width: 300px;
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* --- BUTONLAR VE LİNKLER --- */
+/* W3Schools CSS Buttons */
+button, .product-item a {
+    background-color:#06043a ; /* Bordo Buton */
+    color: #d3a625; /* Altın Sarısı Yazı */
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+button:hover, .product-item a:hover {
+    background-color: #d3a625;
+    color: #740001;
+}
+
+/* --- ÜRÜN DETAY SAYFASI --- */
+.product-detail {
+    background-color: #ffffff;
+    border: 2px solid #740001;
+    border-radius: 10px;
+    padding: 30px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.product-detail img {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+}
+
+/* --- KURAL 14: SEPET TABLOSU --- */
+/* W3Schools CSS Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #740001;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #740001;
+    color: #d3a625;
+}
+
+/* --- İLETİŞİM FORMU --- */
+/* W3Schools CSS Forms */
+form {
+    background-color: #ffffff;
+    border: 2px solid #740001;
+    border-radius: 10px;
+    padding: 30px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+/* --- KURAL 4: FOOTER --- */
+footer {
+    background-color: #740001;
+    color: #d3a625;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 3px solid #d3a625;
+}
+
+/* --- SEÇMEN ŞAPKA RESMİ STİLİ --- */
+/* W3Schools CSS Images ve CSS Margins */
+.sapka-img {
+    display: block; /* Resmi blok elementi yapıyoruz */
+    margin: 20px auto; /* Üstten-alttan boşluk, sağdan-soldan otomatik (ortala) */
+    max-width: 400px; /* Yakın çekim dik resim için genişliği 400px yaptık */
+    height: auto; /* Yüksekliği genişliğe göre otomatik ayarla (oranı koru) */
+    border: 3px solid #740001; /* Gryffindor bordo çerçevesi */
+    border-radius: 10px; /* Köşeleri yuvarla */
+}
+
+/* --- İLETİŞİM SAYFASI FLEXBOX DÜZENİ --- */
+.iletisim-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Görseller ve form arasındaki boşluk */
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.yan-gorsel {
+    flex: 1; /* Görsellerin kaplayacağı oran */
+    text-align: center;
+}
+
+.yan-gorsel img {
+    max-width: 100%; /* Resimlerin kendi alanından taşmasını engeller */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Hafif bir gölge */
+}
+
+/* Formun flexbox içindeki davranışını güncelliyoruz */
+.iletisim-container form {
+    flex: 2; /* Form görsellerden daha geniş dursun (oran: 1-2-1) */
+    width: 100%;
+    margin: 0; /* Artık flexbox ile ortalandığı için formun dış boşluğunu siliyoruz */
+}
+
+/* --- KURAL 6: RESPONSIVE (MOBİL UYUM) --- */
+/* Ekran 768px'den küçükse (tablet/telefon) yan yana değil, alt alta dizilsinler */
+@media screen and (max-width: 768px) {
+    .iletisim-container {
+        flex-direction: column;
+    }
+}
+
+/* --- SADECE İLETİŞİM SAYFASI İÇİN ARKA PLAN --- */
+/* Kural 10'a uyumlu (Inline CSS yerine harici dosyadan yönetim) */
+.mektup-sayfasi {
+    /* CSS dosyası styles klasöründe olduğu için ../ ile dışarı çıkıp img klasörüne giriyoruz */
+    background-image: url('../img/mektup.jpg'); 
+    background-size: cover; /* Resmi ekrana tam sığdırır */
+    background-position: center; /* Resmi ortalar */
+    background-attachment: fixed; /* Fareyle aşağı kaydırınca resim sabit kalır */
+}
+
+/* Arka plan resminin üzerinde form yazılarının okunabilmesi için formu hafif şeffaf yapıyoruz */
+.mektup-sayfasi form {
+    background-color: rgba(255, 255, 255, 0.85); /* %85 oranında opak beyaz arka plan */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Formun etrafına şık bir gölge */
 }
