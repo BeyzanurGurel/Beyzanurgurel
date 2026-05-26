@@ -8,7 +8,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #2b2a4b;
-    color: #a4a4a4;
+    color: #ffffff;
     line-height: 1.6;
 }
 
@@ -49,31 +49,41 @@ main {
     min-height: 500px;
 }
 
-h1, h2, h3 {
+h1, h2,h3  {
     color: #d3a625;
     margin-bottom: 20px;
 }
 
+h4
+{
+    color:#ffffff;
+}
 /* --- ÜRÜNLER --- */
+/* --- KURAL 14: ÜRÜN LİSTELEME (FLEXBOX) --- */
+/* W3Schools yöntemine uygun en basit yapı */
 .product-list {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Ekran daralırsa otomatik alt satıra geçer */
 }
 
 .product-item {
-    background-color: #ffffff;
-    border: 2px solid #740001;
+    background-color: #ffffff; 
+    border: 2px solid #740001; 
     border-radius: 10px;
     padding: 20px;
     margin: 15px;
-    width: 300px;
+    width: 280px; /* 300px'den 280px'e düşürdük, yan yana sığması kolaylaştı */
     text-align: center;
+    color:#000000
 }
 
 .product-item img {
-    max-width: 100%;
+    width: 100%;        /* Kutunun genişliğini kaplasın */
+    height: 200px;      /* Sabit bir yükseklik veriyoruz */
+    object-fit: contain; /* Resmi bozmadan kutuya sığdırır */
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 /* --- BUTONLAR --- */
@@ -101,6 +111,7 @@ table {
     border-collapse: collapse;
     background-color: #ffffff;
     margin-top: 20px;
+    color:#000000;
 }
 
 table, th, td {
@@ -157,6 +168,7 @@ footer {
 .mektup-sayfasi form {
     background-color: rgba(255, 255, 255, 0.85);
     /* Gölge kaldırıldı */
+    color:#000000;
 }
 
 .iletisim-formu {
