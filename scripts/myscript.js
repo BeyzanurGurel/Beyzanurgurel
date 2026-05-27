@@ -1,51 +1,6 @@
 
-function secmenSapkaOyunu() {
-    let isim = prompt("Sihir dükkanımıza hoş geldin! Büyücü adın nedir?");
-    
-    if (!isim) {
-        alert("İsmini söylemezsen şapka çalışmaz!");
-        return; 
-    }
-    
-    // HTML elemanlarını yakala
-    let sonucAlani = document.getElementById("sonuc-alani");
-    let sapkaResmi = document.getElementById("sapka-resmi");
-    
-    // Rengi sıfırla (eğer sonucAlani varsa)
-    if (sonucAlani) {
-        sonucAlani.style.color = "inherit";
-    }
 
-    let soru = `Merhaba ${isim}! Seçmen Şapka'ya hoş geldin. Senin için en önemli özellik hangisi?
-    1 - Cesaret
-    2 - Zeka
-    3 - Hırs
-    4 - Sadakat
-    (Lütfen 1, 2, 3 veya 4 yaz)`;
-               
-    let cevap = prompt(soru);
-    
-    if (cevap === "1") {
-        sonucAlani.innerHTML = `Tebrikler ${isim}! Binan: <span style="color: #4f0102;">GRYFFINDOR!</span> Cesaretin sana yol gösterecek.`;
-        if (sapkaResmi) sapkaResmi.style.borderColor = "#740001";
-        
-    } else if (cevap === "2") {
-        sonucAlani.innerHTML = `Tebrikler ${isim}! Binan: <span style="color: #0942fd;">RAVENCLAW!</span> Zekanla sınırları aşacaksın.`;
-        if (sapkaResmi) sapkaResmi.style.borderColor = "#0e1a40";
-        
-    } else if (cevap === "3") {
-        sonucAlani.innerHTML = `Tebrikler ${isim}! Binan: <span style="color: #1a472a;">SLYTHERIN!</span> Hırsın seni zirveye taşıyacak.`;
-        if (sapkaResmi) sapkaResmi.style.borderColor = "#1a472a";
-        
-    } else if (cevap === "4") {
-        sonucAlani.innerHTML = `Tebrikler ${isim}! Binan: <span style="color: #eeb939;">HUFFLEPUFF!</span> Sadakatin en büyük gücün.`;
-        if (sapkaResmi) sapkaResmi.style.borderColor = "#eeb939";
-        
-    } else {
-        sonucAlani.innerHTML = "Şapka kafanın karıştığını hissetti... Lütfen sadece 1, 2, 3 veya 4 yazarak tekrar dene!";
-        sonucAlani.style.color = "#ff0000";
-    }
-}
+// --- SEPET İŞLEMLERİ ---
 function sepeteEkle(urunAdi, fiyat) {
     let sepet = JSON.parse(localStorage.getItem('benimSepetim')) || [];
     // Artık ürün ve fiyatı bir nesne olarak kaydediyoruz
@@ -53,49 +8,122 @@ function sepeteEkle(urunAdi, fiyat) {
     localStorage.setItem('benimSepetim', JSON.stringify(sepet));
     alert(urunAdi + " sepetinize eklendi!");
 }
-function secmenSapkaOyunu() {
-    // 1. Kullanıcıdan isim al. Geri tıklar (iptal) veya boş bırakırsa C#'taki gibi 'return' ile fonksiyonu durdur.
-    let isim = prompt("Sihir dükkanımıza hoş geldin! Büyücü adın nedir?");
-    
-    if (!isim) {
-        alert("İsmini söylemezsen şapka çalışmaz!");
-        return; 
+
+
+// --- YENİ SEÇMEN ŞAPKA GÖRSEL TESTİ ---
+
+// Sorular ve Cevaplar Dizisi
+const sorular = [
+    {
+        soru: "Önünde dört farklı yol var. Hangisini seçersin?",
+        cevaplar: [
+             { metin: "Karanlık, kestirme ve tehlikeli ara sokağı.", bina: "Slytherin" },
+            { metin: "Güneşli, yeşil ve güvenli görünen patikayı.", bina: "Hufflepuff" },
+           
+            { metin: "Eski yazıtlarla dolu, bilinmeyen taş yolu.", bina: "Ravenclaw" },
+            { metin: "Ejderha kükremelerinin geldiği sarp dağ yolunu.", bina: "Gryffindor" }
+        ]
+    },
+    {
+        soru: "Hogwarts'ta en çok hangi derste başarılı olmak istersin?",
+        cevaplar: [
+             { metin: "Bitkibilim", bina: "Hufflepuff" },
+            { metin: "Karanlık Sanatlara Karşı Savunma", bina: "Gryffindor" },
+            { metin: "İksirler", bina: "Slytherin" },
+            { metin: "Tılsım ve Büyü Tarihi", bina: "Ravenclaw" }
+           
+        ]
+    },
+    {
+        soru: "Bir sandık buldun. İçinden hangisini alırsın?",
+        cevaplar: [
+            { metin: "Parlayan, eski ve bilge bir parşömen.", bina: "Ravenclaw" },
+            ,
+            { metin: "İçinde ne olduğu bilinmeyen gizemli bir şişe.", bina: "Slytherin" },
+            { metin: "Üstünde 'Sadakat' yazan altın bir kupa.", bina: "Hufflepuff" },
+            { metin: "Görkemli ve güçlü bir kılıç.", bina: "Gryffindor" }
+        ]
     }
+];
 
-    // 2. Seçim sorusunu sor. (Ters tırnak ` kullanımı, metinleri daha rahat birleştirmeyi sağlar)
-    let soru = `Merhaba ${isim}! Seçmen Şapka'ya hoş geldin. Senin için en önemli özellik hangisi?
-    1 - Cesaret
-    2 - Zeka
-    3 - Hırs
-    4 - Sadakat
-    (Lütfen 1, 2, 3 veya 4 yaz)`;
-               
-    let cevap = prompt(soru);
+let siradakiSoru = 0;
+let puanlar = { Gryffindor: 0, Slytherin: 0, Ravenclaw: 0, Hufflepuff: 0 };
+
+function testeBasla() {
+    siradakiSoru = 0;
+    puanlar = { Gryffindor: 0, Slytherin: 0, Ravenclaw: 0, Hufflepuff: 0 };
+    soruGoster();
+}
+
+function soruGoster() {
+    let soruAlani = document.getElementById("soru-metni");
+    let butonAlani = document.getElementById("cevap-butonlari");
+
+    // Mevcut soruyu ekrana yazdır
+    soruAlani.innerHTML = "<strong>Soru " + (siradakiSoru + 1) + ":</strong> " + sorular[siradakiSoru].soru;
     
-    // 3. HTML içindeki elemanları (Div ve Resim) yakala
-    let sonucAlani = document.getElementById("sonuc-alani");
-    let sapkaResmi = document.getElementById("sapka-resmi");
+    // Eski butonları temizle
+    butonAlani.innerHTML = "";
 
-    // 4. Cevaba göre HTML'in içine (innerHTML) metin bas ve CSS rengini (borderColor) değiştir
-    if (cevap === "1") {
-        sonucAlani.innerHTML = `Tebrikler ${isim}! Binan: <span style="color: #740001;">GRYFFINDOR!</span> Cesaretin sana yol gösterecek.`;
-        sapkaResmi.style.borderColor = "#740001"; // Bordo
+    // Yeni cevap butonlarını oluştur
+    for (let i = 0; i < sorular[siradakiSoru].cevaplar.length; i++) {
+        let cevap = sorular[siradakiSoru].cevaplar[i];
         
-    } else if (cevap === "2") {
-        sonucAlani.innerHTML = `Tebrikler ${isim}! Binan: <span style="color: #0e1a40;">RAVENCLAW!</span> Zekanla sınırları aşacaksın.`;
-        sapkaResmi.style.borderColor = "#0e1a40"; // Lacivert
+        let yeniButon = document.createElement("button");
+        yeniButon.innerHTML = cevap.metin;
+        yeniButon.onclick = function() { cevapVer(cevap.bina); };
         
-    } else if (cevap === "3") {
-        sonucAlani.innerHTML = `Tebrikler ${isim}! Binan: <span style="color: #1a472a;">SLYTHERIN!</span> Hırsın seni zirveye taşıyacak.`;
-        sapkaResmi.style.borderColor = "#1a472a"; // Yeşil
-        
-    } else if (cevap === "4") {
-        sonucAlani.innerHTML = `Tebrikler ${isim}! Binan: <span style="color: #eeb939;">HUFFLEPUFF!</span> Sadakatin en büyük gücün.`;
-        sapkaResmi.style.borderColor = "#eeb939"; // Sarı
-        
+        butonAlani.appendChild(yeniButon);
+    }
+}
+
+function cevapVer(secilenBina) {
+    // Seçilen binanın puanını 1 artır
+    puanlar[secilenBina]++;
+    siradakiSoru++;
+
+    // Eğer sorular bittiyse sonucu göster, bitmediyse sıradaki soruyu getir
+    if (siradakiSoru < sorular.length) {
+        soruGoster();
     } else {
-        sonucAlani.innerHTML = "Şapka kafanın karıştığını hissetti... Lütfen sadece 1, 2, 3 veya 4 yazarak tekrar dene!";
-        sonucAlani.style.color = "#333";
+        sonucuHesapla();
+    }
+}
+
+function sonucuHesapla() {
+    // En yüksek puanlı binayı bul
+    let enYuksekPuan = 0;
+    let kazananBina = "";
+
+    for (let bina in puanlar) {
+        if (puanlar[bina] > enYuksekPuan) {
+            enYuksekPuan = puanlar[bina];
+            kazananBina = bina;
+        }
     }
 
+    // Soruları gizle, Sonuç alanını göster
+    document.getElementById("soru-alani").style.display = "none";
+    document.getElementById("sonuc-alani").style.display = "block";
+
+    // Resmi ve yazıları değiştir
+    let sonucResmi = document.getElementById("test-resmi");
+    let sonucBaslik = document.getElementById("sonuc-baslik");
+    let sonucMetni = document.getElementById("sonuc-metni");
+
+    sonucBaslik.innerHTML = kazananBina + "!";
+    
+    if (kazananBina === "Gryffindor") {
+        sonucResmi.src = "img/gryffindor.jpg";
+        sonucMetni.innerHTML = "Cesaretin ve kararlılığın seni Gryffindor'a yerleştirdi!";
+    } else if (kazananBina === "Slytherin") {
+        sonucResmi.src = "img/slytherin.jpg";
+        sonucMetni.innerHTML = "Hırsın ve kurnazlığın seni Slytherin'e yerleştirdi!";
+    } else if (kazananBina === "Ravenclaw") {
+        sonucResmi.src = "img/ravenclaw.jpg";
+        sonucMetni.innerHTML = "Zekân ve bilgeliğin seni Ravenclaw'a yerleştirdi!";
+    } else if (kazananBina === "Hufflepuff") {
+        sonucResmi.src = "img/hufflepuff.jpg";
+        sonucMetni.innerHTML = "Sadakatin ve çalışkanlığın seni Hufflepuff'a yerleştirdi!";
+    }
 }

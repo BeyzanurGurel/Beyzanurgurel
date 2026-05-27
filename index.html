@@ -24,17 +24,24 @@
         <p>En kaliteli asalar, iksir malzemeleri ve büyü kitapları burada sizi bekliyor.</p>
        
 
-        <div style="margin: 30px 0;">
-            <h2>Hangi Binadasın?</h2>
-            
-            <img src="img/secmen-sapka.jpg" alt="Seçmen Şapka" class="sapka-img" id="sapka-resmi">
-            
-            <p>Alışverişe başlamadan önce binanı öğrenmek ister misin?</p>
-            <button onclick="secmenSapkaOyunu()">Seçmen Şapka'yı Tak</button>
-            
-            <div id="sonuc-alani" style="margin-top: 20px; font-size: 22px; font-weight: bold;"></div>
+      <div class="test-kutusu">
+    <h2>Hangi Binadasın?</h2>
+    
+    <img src="img/secmen-sapka.jpg" alt="Seçmen Şapka" class="sapka-img" id="test-resmi">
+    
+    <div id="soru-alani">
+        <p id="soru-metni">Alışverişe başlamadan önce binanı öğrenmek ister misin?</p>
+        <div id="cevap-butonlari">
+            <button onclick="testeBasla()">Seçmen Şapka'yı Tak (Testi Başlat)</button>
         </div>
-        
+    </div>
+
+    <div id="sonuc-alani" style="display: none;">
+        <h3 id="sonuc-baslik"></h3>
+        <p id="sonuc-metni"></p>
+        <button onclick="location.reload()">Testi Tekrar Çöz</button>
+    </div>
+</div>
         <div class="product-showcase">
             <h2>Öne Çıkan Ürünler</h2>
             <p>Çok yakında buraya mürver asalar ve şans iksirleri eklenecek...</p>
