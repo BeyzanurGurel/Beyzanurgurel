@@ -191,7 +191,7 @@ footer {
 .sapka-img {
     display: block;
     margin: 17px auto;
-    max-width: 320px;
+    max-width: 300px; 
     height: auto;
     border: 3px solid #740001;
     border-radius: 10px;
