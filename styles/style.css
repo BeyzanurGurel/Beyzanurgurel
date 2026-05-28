@@ -355,4 +355,9 @@ footer {
         margin: 5px 0;
         padding: 10px;
     }
+    .iletisim-formu {
+        width: 90%; /* Telefonda %50 yerine ekranın %90'ını kaplasın */
+        padding: 15px; /* İç boşlukları daralttık ki yazılara yer açılsın */
+        margin: 15px auto; /* Üstten alttan boşlukları telefona göre dengeledik */
+}
 }
