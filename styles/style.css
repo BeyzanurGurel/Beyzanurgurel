@@ -239,9 +239,11 @@ footer {
 
 .iletisim-formu {
     background-color: rgb(11, 11, 11);
+    width: 100%; /* SİHİRLİ SATIR 1: Ekranı tamamen kapla */
+    box-sizing: border-box; /* SİHİRLİ SATIR 2: Boşluklar (padding) formu taşırmasın */
     padding: 20px;
     border-radius: 10px;
-    max-width: 500px;
+    max-width: 500px; /* BİLGİSAYAR İÇİN: 100% olsan bile 500px'i geçme */
     margin: 20px auto;
     border: 2px solid #740001;
 }
