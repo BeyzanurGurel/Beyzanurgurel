@@ -14,34 +14,72 @@ body {
 
 /* --- HEADER VE NAVBAR --- */
 header {
-    background-color: #04032c;
-    padding: 20px;
-    text-align: center;
+    margin: 0;
+    padding: 0;
     border-bottom: 3px solid #d3a625;
+    /* Bordo'dan koyu laciverte çok şık bir geçiş */
+    background: linear-gradient(to right,#03031f , #4a0000); 
 }
 
-nav ul {
+nav {
+    /* nav etiketinin tam genişlikte çalışmasını garanti altına alıyoruz */
+    width: 100%;
+}
+
+.ust-menu {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between; /* Logoyu sola, linkleri sağa çiviler */
+    align-items: center; /* Dikeyde her şeyi tam ortalar */
+    height: 80px; 
 }
 
-nav ul li {
-    margin: 0 15px;
+/* --- SOL TARAF (Logo ve Yazı) --- */
+.logo-kismi {
+    padding-left: 20px;
 }
 
-nav ul li a {
-    color: #d3a625;
+.logo-kismi a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    font-size: 18px;
+    color: #d3a625; 
+    font-size: 22px;
     font-weight: bold;
 }
 
-nav ul li a:hover {
-    color: #ffffff;
+.logo-kismi img {
+    height: 55px; /* Logoyu ideal boyuta küçültür */
+    width: auto;
+    object-fit: contain;
+    margin-right: 15px;
 }
 
+/* --- SAĞ TARAF (Linkler) --- */
+.link-kismi {
+    padding-right: 20px;
+}
+
+.link-kismi a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 15px; 
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.link-kismi a:hover {
+    color: #d3a625;
+}
+
+/* Aktif (Bulunulan) Sayfanın Alt Çizgisi */
+.link-kismi a.aktif {
+    border-bottom: 2px solid #d3a625; 
+}
 /* --- ANA İÇERİK --- */
 main {
     padding: 40px 20px;
@@ -54,10 +92,7 @@ h1, h2,h3  {
     margin-bottom: 20px;
 }
 
-h4
-{
-    color:#ffffff;
-}
+
 /* --- ÜRÜNLER --- */
 /* --- KURAL 14: ÜRÜN LİSTELEME (FLEXBOX) --- */
 /* W3Schools yöntemine uygun en basit yapı */
@@ -104,6 +139,25 @@ button:hover, .product-item a:hover {
     background-color: #d3a625;
     color: #740001;
 }
+/* --- ÜRÜN DETAY SAYFASI KUTUSU --- */
+.product-detail {
+    background-color: #ffffff; /* İletişim sayfasındaki gibi beyaz arka plan */
+    color: #000000; /* Beyazın üstünde okunabilmesi için yazılar siyah */
+    max-width: 600px; /* Kutu ekranı tamamen kaplamasın */
+    margin: 30px auto; /* Sayfanın tam ortasında dursun */
+    padding: 30px; /* İçindeki yazılar kenarlara yapışmasın */
+    border-radius: 10px; /* Köşeleri hafif yuvarlatılmış */
+    border: 3px solid ; /* Bordo Hogwarts çerçevesi */
+    text-align: center;
+}
+
+/* Beyaz kutunun içinde sarı renk zor okunacağı için başlıkları bordo yapıyoruz */
+.product-detail h2, 
+.product-detail h3 {
+    color: #d3a625; 
+    margin-bottom: 15px;
+}
+
 
 /* --- TABLO VE FORMLAR --- */
 table {
@@ -149,7 +203,7 @@ input, select, textarea {
 
 /* --- FOOTER --- */
 footer {
-    background-color: #740001;
+    background-color: #10082a;
     color: #d3a625;
     text-align: center;
     padding: 20px;
@@ -167,9 +221,21 @@ footer {
 
 .mektup-sayfasi form {
     background-color: rgba(255, 255, 255, 0.85);
-    /* Gölge kaldırıldı */
+  
     color:#000000;
 }
+/* İletişim Sayfası Başlık Kutusu */
+.baslik-kutusu {
+    background-color: #ffffff; 
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #740001; 
+    max-width: 500px; /* Form ile aynı genişlikte olması için */
+    margin: 0 auto 20px auto; /* Kutuyu ortalar ve form ile arasına boşluk bırakır */
+    color:#000000
+}
+
+
 
 .iletisim-formu {
     background-color: rgb(11, 11, 11);
@@ -193,13 +259,13 @@ footer {
     margin: 17px auto;
     max-width: 300px; 
     height: auto;
-    border: 3px solid #740001;
+    border: 3px solid #2c0074;
     border-radius: 10px;
 }
 /* --- SEÇMEN ŞAPKA TEST ALANI --- */
 .test-kutusu {
     background-color: #11004d;
-    border: 2px solid #740001; /* Bordo Çerçeve */
+    border: 2px solid ; 
     border-radius: 10px;
     padding: 30px;
     max-width: 500px;
@@ -216,7 +282,7 @@ footer {
     display: block; /* Butonları alt alta dizer */
     width: 100%; /* Kutunun tamamını kaplar */
     margin-top: 10px;
-    background-color: #2c0202;
+    background-color: #000225;
     color: #d3a625;
     padding: 15px;
     border: none;
@@ -238,9 +304,55 @@ footer {
     font-size: 24px;
     color: #740001;
 }
+/* --- ANA SAYFA TÜMÜNÜ GÖRÜNTÜLE BUTONU --- */
+.tumunu-gor-alani {
+    text-align: center;
+    margin-top: 40px; /* Ürünlerle arasına boşluk bırakır */
+    margin-bottom: 20px; 
+}
 
+.tumunu-gor-btn {
+    background-color: #000225;
+    color: #d3a625; /* Altın sarısı yazı */
+    padding: 15px 30px;
+    text-decoration: none; /* Linkin altındaki klasik çizgiyi kaldırır */
+    
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Fare ile butonun üzerine gelindiğinde (Hover Efekti) */
+.tumunu-gor-btn:hover {
+    background-color: #d3a625;
+    color: #740001;
+    border: 2px solid #740001;
+}
+/* --- MOBİL UYUM (RESPONSIVE) AYARLARI --- */
 @media screen and (max-width: 768px) {
-    .iletisim-container {
-        flex-direction: column;
+    /* Menüyü alt alta dizer ve yüksekliği esnetir */
+    .ust-menu {
+        flex-direction: column; 
+        height: auto; 
+        padding: 15px 0;
+    }
+    
+    /* Logoyu ortalar */
+    .logo-kismi {
+        padding-left: 0;
+        margin-bottom: 15px;
+    }
+
+    /* Link kutusunu ayarlar */
+    .link-kismi {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    /* Linkleri alt alta dizer ve telefonda basmayı kolaylaştırır */
+    .link-kismi a {
+        display: block; 
+        margin: 5px 0;
+        padding: 10px;
     }
 }

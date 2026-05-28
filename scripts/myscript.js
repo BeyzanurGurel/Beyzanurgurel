@@ -194,3 +194,21 @@ function sonucuHesapla() {
         sonucMetni.innerHTML = "Sadakatin ve çalışkanlığın seni Hufflepuff'a yerleştirdi!";
     }
 }
+// Sayfa yüklendiğinde formu bul
+const baykusForm = document.getElementById("baykusForm");
+
+// Eğer bulunduğumuz sayfada bu form varsa (hata vermemesi için kontrol ediyoruz)
+if (baykusForm) {
+    // Formun 'gönderilme' (submit) olayını dinle
+    baykusForm.addEventListener("submit", function(event) {
+        
+        // Formun sayfayı yenilemesini engelle
+        event.preventDefault(); 
+        
+        // Kullanıcıya mesaj ver
+        alert("Baykuşunuz yola çıktı! Sipariş/Mesajınız sihir bakanlığı onayından geçip bize iletildi.");
+        
+        // Formun içindeki tüm kutucukları temizle
+        baykusForm.reset(); 
+    });
+}
