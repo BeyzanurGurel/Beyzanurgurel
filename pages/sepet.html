@@ -27,7 +27,8 @@
     </nav>
 </header>
 
-    <main>
+        
+       <main>
         <h1>Alışveriş Sepetiniz</h1>
         
         <table border="1">
@@ -41,39 +42,10 @@
         </table>
         
         <h3 id="toplam-fiyat">Toplam: 0 Galleon</h3>
-        <button onclick="siparisTamamla()">Siparişi Tamamla</button>
+        <button id="siparisBtn">Siparişi Tamamla</button>
     </main>
+    
 
-    <script>
-        let sepet = JSON.parse(localStorage.getItem('benimSepetim')) || [];
-        let tabloGovdesi = document.getElementById('sepet-tablo-govdesi');
-        let toplamAlani = document.getElementById('toplam-fiyat');
-        let toplam = 0;
-
-        sepet.forEach(urun => {
-            if (typeof urun === 'object') {
-                let row = `<tr><td>${urun.adi}</td><td>${urun.fiyat} Galleon</td></tr>`;
-                tabloGovdesi.innerHTML += row;
-                toplam += parseInt(urun.fiyat) || 0;
-            } else {
-                let row = `<tr><td>${urun}</td><td>200 Galleon</td></tr>`;
-                tabloGovdesi.innerHTML += row;
-                toplam += 200;
-            }
-        });
-
-        toplamAlani.innerText = "Toplam: " + toplam + " Galleon";
-
-        function siparisTamamla() {
-            if (sepet.length === 0) {
-                alert("Sepetiniz boş!");
-                return;
-            }
-            alert("Siparişiniz alındı! Baykuşlarımız yola çıkıyor.");
-            localStorage.clear();
-            location.reload();
-        }
-    </script>
 
     <footer>
         <p>&copy; 2026 Ollivander'ın Çırağı. Tüm sihirli hakları saklıdır.</p>

@@ -1,46 +1,31 @@
-/* --- GENEL AYARLAR --- */
-* {
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #000225;
+    background-color: #0b0d30;
     color: #ffffff;
     line-height: 1.6;
 }
-
-/* --- HEADER VE NAVBAR --- */
 header {
-    margin: 0;
-    padding: 0;
+    background-color: #030316;
     border-bottom: 3px solid #d3a625;
-    /* Bordo'dan koyu laciverte çok şık bir geçiş */
-    background: linear-gradient(to right,#03031f , #4a0000); 
 }
-
 nav {
-    /* nav etiketinin tam genişlikte çalışmasını garanti altına alıyoruz */
     width: 100%;
 }
-
 .ust-menu {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: space-between; /* Logoyu sola, linkleri sağa çiviler */
-    align-items: center; /* Dikeyde her şeyi tam ortalar */
-    height: 80px; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 0;
 }
-
-/* --- SOL TARAF (Logo ve Yazı) --- */
 .logo-kismi {
     padding-left: 20px;
 }
-
 .logo-kismi a {
     display: flex;
     align-items: center;
@@ -49,81 +34,56 @@ nav {
     font-size: 22px;
     font-weight: bold;
 }
-
 .logo-kismi img {
-    height: 55px; /* Logoyu ideal boyuta küçültür */
+    height: 55px; 
     width: auto;
-    object-fit: contain;
     margin-right: 15px;
 }
-
-/* --- SAĞ TARAF (Linkler) --- */
 .link-kismi {
     padding-right: 20px;
 }
-
 .link-kismi a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: bold;
-    padding: 10px 15px; 
-    margin: 0 5px;
-    display: inline-block;
+    color: #ffffff; text-decoration: none;
+    font-size: 17px; font-weight: bold;
+    padding: 10px 15px;  display: inline-block;
 }
-
 .link-kismi a:hover {
     color: #d3a625;
 }
-
-/* Aktif (Bulunulan) Sayfanın Alt Çizgisi */
 .link-kismi a.aktif {
     border-bottom: 2px solid #d3a625; 
 }
-/* --- ANA İÇERİK --- */
 main {
-    padding: 40px 20px;
-    text-align: center;
-    min-height: 500px;
+    padding: 40px 20px; text-align: center;  min-height: 500px;
 }
-
-h1, h2,h3  {
+h1, h2, h3 {
     color: #d3a625;
     margin-bottom: 20px;
 }
-
-
-/* --- ÜRÜNLER --- */
-/* --- KURAL 14: ÜRÜN LİSTELEME (FLEXBOX) --- */
-/* W3Schools yöntemine uygun en basit yapı */
 .product-list {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Ekran daralırsa otomatik alt satıra geçer */
+    flex-wrap: wrap; 
 }
-
 .product-item {
     background-color: #ffffff; 
-    border: 2px solid #740001; 
+    border: 2px ; 
     border-radius: 10px;
     padding: 20px;
     margin: 15px;
-    width: 280px; /* 300px'den 280px'e düşürdük, yan yana sığması kolaylaştı */
+    width: 280px; 
     text-align: center;
-    color:#000000
+    color: #000000;
 }
-
 .product-item img {
-    width: 100%;        /* Kutunun genişliğini kaplasın */
-    height: 200px;      /* Sabit bir yükseklik veriyoruz */
-    object-fit: contain; /* Resmi bozmadan kutuya sığdırır */
+    width: 100%;        
+    height: 200px;      
+    object-fit: contain; 
     border-radius: 5px;
     margin-bottom: 10px;
 }
-
-/* --- BUTONLAR --- */
-button, .product-item a {
-    background-color: #06043a;
+button, .product-item a, .tumunu-gor-btn {
+    background-color: #0d0124;
     color: #d3a625;
     padding: 10px 20px;
     text-decoration: none;
@@ -133,233 +93,108 @@ button, .product-item a {
     cursor: pointer;
     display: inline-block;
     margin-top: 15px;
+    font-weight: bold;
 }
-
-button:hover, .product-item a:hover {
+button:hover, .product-item a:hover, .tumunu-gor-btn:hover {
     background-color: #d3a625;
     color: #740001;
 }
-/* --- ÜRÜN DETAY SAYFASI KUTUSU --- */
-.product-detail {
-    background-color: #ffffff; /* İletişim sayfasındaki gibi beyaz arka plan */
-    color: #000000; /* Beyazın üstünde okunabilmesi için yazılar siyah */
-    max-width: 600px; /* Kutu ekranı tamamen kaplamasın */
-    margin: 30px auto; /* Sayfanın tam ortasında dursun */
-    padding: 30px; /* İçindeki yazılar kenarlara yapışmasın */
-    border-radius: 10px; /* Köşeleri hafif yuvarlatılmış */
-    border: 3px solid ; /* Bordo Hogwarts çerçevesi */
+.tumunu-gor-alani {
+    text-align: center;
+    margin-top: 40px; 
+    margin-bottom: 20px; 
+}
+.product-detail, .baslik-kutusu, .test-kutusu {
+    background-color: #ffffff; 
+    color: #000000; 
+    max-width: 600px; 
+    margin: 30px auto; 
+    padding: 30px; 
+    border-radius: 10px; 
+    border: 3px; 
     text-align: center;
 }
-
-/* Beyaz kutunun içinde sarı renk zor okunacağı için başlıkları bordo yapıyoruz */
-.product-detail h2, 
-.product-detail h3 {
-    color: #d3a625; 
+.product-detail h2, .product-detail h3 {
+    color: #740001 ;
     margin-bottom: 15px;
 }
-
-
-/* --- TABLO VE FORMLAR --- */
 table {
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff;
     margin-top: 20px;
-    color:#000000;
+    color: #000000;
 }
-
 table, th, td {
     border: 1px solid #740001;
 }
-
 th, td {
     padding: 15px;
     text-align: center;
 }
-
 th {
     background-color: #740001;
     color: #d3a625;
 }
-
 form {
     background-color: #ffffff;
-    border: 2px solid #740001;
-    border-radius: 10px;
-    padding: 30px;
-    width: 50%;
-    margin: 0 auto;
-    text-align: left;
+    border: 2px solid #d3a625 ;
+    border-radius: 10px;padding: 30px;
+    max-width: 500px; margin: 0 auto;
+    text-align: left; color: #000000;
 }
-
-input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+.contact-info {
+    background-color: #f4f4f4; padding: 15px;
+    border-radius: 8px; margin-bottom: 20px;
     border: 1px solid #cccccc;
-    border-radius: 5px;
+}
+input, select, textarea {
+    width: 100%; padding: 10px;
+    margin-top: 5px;  margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;  box-sizing: border-box; 
+}
+.test-kutusu {  background-color: #11004d; color: #ffffff;}
+.test-kutusu h2 { color: #d3a625; }
+
+.sapka-img, .test-kutusu img {
+    max-width: 100%;  height: auto;
+    border-radius: 8px;
+    border: 2px solid #2c0074;
+    margin-bottom: 15px;
 }
 
-/* --- FOOTER --- */
+#cevap-butonlari button {
+    display: block;   width: 100%; 
+}
+#sonuc-baslik {
+    font-size: 24px;  color: #d3a625;
+}
 footer {
-    background-color: #10082a;
+    background-color: #120737;
     color: #d3a625;
     text-align: center;
     padding: 20px;
     margin-top: 40px;
     border-top: 3px solid #d3a625;
 }
-
-/* --- ÖZEL SAYFALAR --- */
-.mektup-sayfasi {
-    background-image: url('../img/mektup.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.mektup-sayfasi form {
-    background-color: rgba(255, 255, 255, 0.85);
-  
-    color:#000000;
-}
-/* İletişim Sayfası Başlık Kutusu */
-.baslik-kutusu {
-    background-color: #ffffff; 
-    padding: 15px;
-    border-radius: 10px;
-    border: 2px solid #740001; 
-    max-width: 500px; /* Form ile aynı genişlikte olması için */
-    margin: 0 auto 20px auto; /* Kutuyu ortalar ve form ile arasına boşluk bırakır */
-    color:#000000
-}
-
-
-
-.iletisim-formu {
-    background-color: rgb(11, 11, 11);
-    width: 100%; /* SİHİRLİ SATIR 1: Ekranı tamamen kapla */
-    box-sizing: border-box; /* SİHİRLİ SATIR 2: Boşluklar (padding) formu taşırmasın */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px; /* BİLGİSAYAR İÇİN: 100% olsan bile 500px'i geçme */
-    margin: 20px auto;
-    border: 2px solid #740001;
-}
-
-.contact-info {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    color: #000000;
-}
-
-.sapka-img {
-    display: block;
-    margin: 17px auto;
-    max-width: 300px; 
-    height: auto;
-    border: 3px solid #2c0074;
-    border-radius: 10px;
-}
-/* --- SEÇMEN ŞAPKA TEST ALANI --- */
-.test-kutusu {
-    background-color: #11004d;
-    border: 2px solid ; 
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 500px;
-    margin: 30px auto; /* Sayfayı ortalar */
-    text-align: center;
-}
-.test-kutusu img {
-    max-width: 100%; 
-    height: auto;
-    border-radius: 8px;
-}
-
-#cevap-butonlari button {
-    display: block; /* Butonları alt alta dizer */
-    width: 100%; /* Kutunun tamamını kaplar */
-    margin-top: 10px;
-    background-color: #000225;
-    color: #d3a625;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#cevap-butonlari button:hover {
-    background-color: #d3a625;
-    color: #740001;
-}
-
-#sonuc-alani {
-    margin-top: 20px;
-}
-
-#sonuc-baslik {
-    font-size: 24px;
-    color: #740001;
-}
-/* --- ANA SAYFA TÜMÜNÜ GÖRÜNTÜLE BUTONU --- */
-.tumunu-gor-alani {
-    text-align: center;
-    margin-top: 40px; /* Ürünlerle arasına boşluk bırakır */
-    margin-bottom: 20px; 
-}
-
-.tumunu-gor-btn {
-    background-color: #000225;
-    color: #d3a625; /* Altın sarısı yazı */
-    padding: 15px 30px;
-    text-decoration: none; /* Linkin altındaki klasik çizgiyi kaldırır */
-    
-    font-size: 18px;
-    font-weight: bold;
-    display: inline-block;
-}
-
-/* Fare ile butonun üzerine gelindiğinde (Hover Efekti) */
-.tumunu-gor-btn:hover {
-    background-color: #d3a625;
-    color: #740001;
-    border: 2px solid #740001;
-}
-/* --- MOBİL UYUM (RESPONSIVE) AYARLARI --- */
 @media screen and (max-width: 768px) {
-    /* Menüyü alt alta dizer ve yüksekliği esnetir */
     .ust-menu {
         flex-direction: column; 
-        height: auto; 
-        padding: 15px 0;
     }
-    
-    /* Logoyu ortalar */
     .logo-kismi {
         padding-left: 0;
         margin-bottom: 15px;
     }
-
-    /* Link kutusunu ayarlar */
     .link-kismi {
         padding-right: 0;
         text-align: center;
     }
-
-    /* Linkleri alt alta dizer ve telefonda basmayı kolaylaştırır */
     .link-kismi a {
         display: block; 
         margin: 5px 0;
-        padding: 10px;
     }
-    .iletisim-formu {
-        width: 90%; /* Telefonda %50 yerine ekranın %90'ını kaplasın */
-        padding: 15px; /* İç boşlukları daralttık ki yazılara yer açılsın */
-        margin: 15px auto; /* Üstten alttan boşlukları telefona göre dengeledik */
-}
-}
+    form, .product-detail, .test-kutusu {
+        width: 90%; 
+        padding: 15px;
+    }}
